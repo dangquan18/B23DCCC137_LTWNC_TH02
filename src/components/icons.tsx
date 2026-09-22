@@ -48,42 +48,6 @@ export function IconPlus(props: IconProps) {
   );
 }
 
-export function IconAlert(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M12 9v4.5M12 17h.01" />
-      <path d="M10.6 3.9 2.9 18a2 2 0 0 0 1.75 3h14.7a2 2 0 0 0 1.75-3L13.4 3.9a2 2 0 0 0-3.4 0Z" />
-    </svg>
-  );
-}
-
-export function IconClock(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3.2 2" />
-    </svg>
-  );
-}
-
-export function IconCheckCircle(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="m8.5 12.3 2.4 2.4 4.8-5.2" />
-    </svg>
-  );
-}
-
-export function IconListChecks(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="m3.5 6 1.5 1.5L8 4.5M3.5 13l1.5 1.5L8 11.5M3.5 20l1.5 1.5L8 18.5" />
-      <path d="M12 6h9M12 13h9M12 20h9" />
-    </svg>
-  );
-}
-
 export function IconGraduationCap(props: IconProps) {
   return (
     <svg {...base} {...props}>

@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 import { AssignmentForm } from './components/AssignmentForm';
 import { AssignmentList } from './components/AssignmentList';
 import { FilterTabs } from './components/FilterTabs';
-import { StatsBar } from './components/StatsBar';
 import { IconGraduationCap } from './components/icons';
 import { loadInitialAssignments, selectError, selectLoading } from './features/assignments/assignmentsSlice';
 import './App.css';
@@ -28,8 +27,6 @@ function App() {
           <p>Theo dõi deadline bài tập của bạn, đừng để nộp trễ!</p>
         </div>
       </header>
-
-      {!loading && !error && <StatsBar />}
 
       <main className="app__main">
         <AssignmentForm />

@@ -72,20 +72,22 @@ export function AssignmentForm() {
 
         <div>
           <label htmlFor="priority">Độ ưu tiên</label>
-          <select
-            id="priority"
-            value={values.priority}
-            onChange={(e) => {
-              const next = e.target.value;
-              if (isPriority(next)) setField('priority', next);
-            }}
-          >
-            {PRIORITIES.map((p) => (
-              <option key={p} value={p}>
-                {PRIORITY_LABEL[p]}
-              </option>
-            ))}
-          </select>
+          <div className="select-shell">
+            <select
+              id="priority"
+              value={values.priority}
+              onChange={(e) => {
+                const next = e.target.value;
+                if (isPriority(next)) setField('priority', next);
+              }}
+            >
+              {PRIORITIES.map((p) => (
+                <option key={p} value={p}>
+                  {PRIORITY_LABEL[p]}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
 
