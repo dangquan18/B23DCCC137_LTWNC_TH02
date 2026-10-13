@@ -62,6 +62,10 @@ Nguyên nhân:
 
 Điểm bị kéo xuống chủ yếu bởi **Total Blocking Time** (7–9,5 giây). Luồng chính bị khoá trong lúc React tạo 10.000 thẻ.
 
+| Lighthouse desktop, trước khi tối ưu | Lighthouse mobile, trước khi tối ưu |
+|---|---|
+| ![Lighthouse desktop trước khi tối ưu: 61 điểm](docs/screenshots/lighthouse-before-desktop.png) | ![Lighthouse mobile trước khi tối ưu: 69 điểm](docs/screenshots/lighthouse-before-mobile.png) |
+
 ## 5. Các kỹ thuật đã áp dụng
 
 ### 5.1. `React.memo` cho `AssignmentCard` + `useCallback` cho handler
@@ -122,6 +126,10 @@ Cả 7 commit cộng lại chỉ có 9 lần render `AssignmentCard`, đúng b�
 |---|---:|---:|---:|---:|---:|---:|
 | Desktop | **100** | 0,5 s | 0,5 s | 0 ms | 0,5 s | 0,029 |
 | Mobile | **99** | 1,7 s | 1,7 s | 10 ms | 1,7 s | 0,027 |
+
+| Lighthouse desktop, sau khi tối ưu | Lighthouse mobile, sau khi tối ưu |
+|---|---|
+| ![Lighthouse desktop sau khi tối ưu: 100 điểm](docs/screenshots/lighthouse-after-desktop.png) | ![Lighthouse mobile sau khi tối ưu: 99 điểm](docs/screenshots/lighthouse-after-mobile.png) |
 
 ## 7. Bảng so sánh trước / sau
 
