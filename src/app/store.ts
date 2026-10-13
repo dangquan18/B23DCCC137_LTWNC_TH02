@@ -1,11 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import assignmentsReducer from '../features/assignments/assignmentsSlice';
+import { createLogger } from 'redux-logger';
+import { setupStore } from './setupStore';
 
-export const store = configureStore({
-  reducer: {
-    assignments: assignmentsReducer,
-  },
-});
+const devMiddleware = import.meta.env.DEV ? [createLogger({ collapsed: true })] : [];
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const store = setupStore(undefined, devMiddleware);

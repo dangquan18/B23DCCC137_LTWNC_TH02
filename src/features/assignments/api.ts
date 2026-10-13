@@ -1,9 +1,10 @@
+import { toIsoDate } from '../../utils/date';
 import type { Assignment } from './types';
 
 function isoDaysFromNow(offset: number): string {
   const d = new Date();
   d.setDate(d.getDate() + offset);
-  return d.toISOString().slice(0, 10);
+  return toIsoDate(d);
 }
 
 // Dữ liệu mẫu ban đầu, giả lập response từ server.

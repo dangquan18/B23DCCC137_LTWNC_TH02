@@ -48,6 +48,66 @@ export function IconPlus(props: IconProps) {
   );
 }
 
+export function IconPin(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 17v4.5" />
+      <path d="M9 3.5h6l-1 5.5 3.5 3.2V14h-11v-1.8L10 9z" />
+    </svg>
+  );
+}
+
+export function IconSearch(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20.5 20.5-4.5-4.5" />
+    </svg>
+  );
+}
+
+export function IconSun(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" />
+    </svg>
+  );
+}
+
+export function IconMoon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" />
+    </svg>
+  );
+}
+
+export function IconList(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01" />
+    </svg>
+  );
+}
+
+export function IconChart(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3.5 20.5h17" />
+      <path d="M7 16.5v-5M12 16.5V7M17 16.5v-8" />
+    </svg>
+  );
+}
+
+export function IconBolt(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z" />
+    </svg>
+  );
+}
+
 export function IconGraduationCap(props: IconProps) {
   return (
     <svg {...base} {...props}>

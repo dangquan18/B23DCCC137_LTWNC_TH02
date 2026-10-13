@@ -33,11 +33,51 @@
   --shadow-md: 0 8px 24px -8px rgba(20, 36, 26, 0.14);
   --shadow-lg: 0 16px 40px -12px rgba(21, 128, 61, 0.24);
 
+  --chip-bg: rgba(0, 0, 0, 0.06);
+
   font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg-top: #0f1a14;
+  --bg-bottom: #0b120e;
+  --surface: #15211b;
+  --surface-soft: #1a2820;
+  --border: #253a2e;
+  --border-strong: #31503e;
+
+  --text: #e4efe8;
+  --text-muted: #9db3a6;
+  --text-faint: #6f8579;
+
+  --primary: #22c55e;
+  --primary-dark: #4ade80;
+  --primary-soft: rgba(34, 197, 94, 0.14);
+
+  --danger: #fb7185;
+  --danger-soft: rgba(251, 113, 133, 0.14);
+  --success: #2dd4bf;
+  --success-soft: rgba(45, 212, 191, 0.14);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.14);
+  --info: #38bdf8;
+  --info-soft: rgba(56, 189, 248, 0.14);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+
+  --chip-bg: rgba(255, 255, 255, 0.08);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  background: var(--bg-bottom);
 }
 
 body {

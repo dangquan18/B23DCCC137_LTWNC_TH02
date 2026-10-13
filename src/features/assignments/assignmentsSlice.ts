@@ -1,19 +1,20 @@
 import { createAsyncThunk, createSlice, nanoid, type PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../app/store';
 import { fetchAssignmentsFromServer } from './api';
 import type { Assignment, AssignmentUpdate, FilterStatus, NewAssignmentInput } from './types';
 
-interface AssignmentsState {
+export type LoadStatus = 'idle' | 'loading' | 'succeeded' | 'failed';
+
+export interface AssignmentsState {
   items: Assignment[];
   filter: FilterStatus;
-  loading: boolean;
+  status: LoadStatus;
   error: string | null;
 }
 
-const initialState: AssignmentsState = {
+export const initialState: AssignmentsState = {
   items: [],
   filter: 'all',
-  loading: false,
+  status: 'idle',
   error: null,
 };
 
@@ -37,6 +38,9 @@ const assignmentsSlice = createSlice({
         return { payload: { ...input, id: nanoid(), completed: false } as Assignment };
       },
     },
+    replaceAll(state, action: PayloadAction<Assignment[]>) {
+      state.items = action.payload;
+    },
     toggleCompleted(state, action: PayloadAction<string>) {
       const item = state.items.find((a) => a.id === action.payload);
       if (item) item.completed = !item.completed;
@@ -55,26 +59,38 @@ const assignmentsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(loadInitialAssignments.pending, (state) => {
-        state.loading = true;
+        state.status = 'loading';
         state.error = null;
       })
       .addCase(loadInitialAssignments.fulfilled, (state, action) => {
-        state.loading = false;
+        state.status = 'succeeded';
         state.items = action.payload;
       })
       .addCase(loadInitialAssignments.rejected, (state, action) => {
-        state.loading = false;
+        // Request bị huỷ (component unmount / StrictMode chạy effect 2 lần) không phải lỗi thật.
+        if (action.meta.aborted) return;
+        state.status = 'failed';
         state.error = action.error.message ?? 'Không thể tải danh sách bài tập.';
       });
   },
 });
 
-export const { addAssignment, toggleCompleted, updateAssignment, removeAssignment, setFilter } =
-  assignmentsSlice.actions;
+export const {
+  addAssignment,
+  replaceAll,
+  toggleCompleted,
+  updateAssignment,
+  removeAssignment,
+  setFilter,
+} = assignmentsSlice.actions;
 
 export default assignmentsSlice.reducer;
 
-export const selectAssignments = (state: RootState) => state.assignments.items;
-export const selectFilter = (state: RootState) => state.assignments.filter;
-export const selectLoading = (state: RootState) => state.assignments.loading;
-export const selectError = (state: RootState) => state.assignments.error;
+interface WithAssignments {
+  assignments: AssignmentsState;
+}
+
+export const selectAssignments = (state: WithAssignments) => state.assignments.items;
+export const selectFilter = (state: WithAssignments) => state.assignments.filter;
+export const selectStatus = (state: WithAssignments) => state.assignments.status;
+export const selectError = (state: WithAssignments) => state.assignments.error;

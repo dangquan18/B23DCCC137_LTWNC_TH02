@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { daysUntil, formatDaysLabel } from '../utils/date';
+import { calcDaysLeft, formatDaysLabel } from '../utils/date';
 
 export interface DeadlineInfo {
   daysLeft: number;
@@ -24,7 +24,7 @@ export function useDeadlineCountdown(deadline: string): DeadlineInfo {
   }, [now]);
 
   return useMemo(() => {
-    const daysLeft = daysUntil(deadline, now);
+    const daysLeft = calcDaysLeft(deadline, now);
     return {
       daysLeft,
       isOverdue: daysLeft < 0,

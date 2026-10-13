@@ -11,6 +11,14 @@
       rel="stylesheet"
     />
     <title>Student Deadline Tracker</title>
+    <script>
+      // Đặt theme trước khi vẽ trang để không bị nháy màu sáng khi đang dùng giao diện tối.
+      try {
+        var t = localStorage.getItem('sdt-theme');
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
